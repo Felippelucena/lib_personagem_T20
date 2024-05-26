@@ -2,14 +2,16 @@ from .atributos import Atributos
 from .raca import Raca
 from .pericias import Pericias
 from .dados import Dados
+from .poderes import Poderes
 
 class Personagem:
     def __init__(self, nome):
         self.nome = nome
         self.nivel = 1
         self.dados = Dados()
-        self.atributos = Atributos()
-        self.raca = Raca()
+        self.atributos = Atributos(self)
+        self.raca = Raca(self)
+        self.poderes = Poderes()
         self.classe = None
         self.origem = None
         self.divindade = None
@@ -37,7 +39,3 @@ class Personagem:
             f"PM Atual: {self.pm['atual']}\n"
             f"Localização: {self.localizacao}\n"
         )
-    
-    def ativar_passivas(self, personagem):
-        for poder in self.raca.poderes['passivas'].values():
-            poder(personagem)

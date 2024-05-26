@@ -1,5 +1,6 @@
 class Atributos:
-    def __init__(self, pontos=10):
+    def __init__(self, personagem, pontos=10):
+        self.__personagem = personagem
         self.pontos = pontos
         self.lista = {  'for': {'base':0 },
                         'des': {'base':0 },
@@ -39,19 +40,20 @@ class Atributos:
                         self.lista[atributo]['base'] = valor
                 else:
                     self.pontos = 10
-    
+        self.__personagem.poderes.adicionar({'Atributos Mínimos': {'usar': self.atributos_minimos, 'palavras_chaves': ['passiva', 'atributos']}})
+        
+        
     def __str__(self):
-        atributos = {}
-        for atributo, valor in self.lista.items():
-            atributos[atributo] = sum(valor.values())
-        return f'{atributos}'
-    
+            return str({atributo: sum(valor.values()) for atributo, valor in self.lista.items()})
+
     def total(self):
-        atributos = {}
-        for atributo, valor in self.lista.items():
-            atributos[atributo] = sum(valor.values())
-        return atributos
+            return {atributo: sum(valor.values()) for atributo, valor in self.lista.items()}
+
     
     def adicionar_mod(self, palavra_chave, atributos):
         for atributo, valor in atributos.items():
             self.lista[atributo][palavra_chave] = valor
+
+    def atributos_minimos(self):
+        descricao = 'Um valor menor que –5 em um atributo gera um efeito: For ou Des (paralisado), Con (morre), Int ou Sab (inconsciente), Car (torna-se um NPC). Isso ignora imunidades. Ver livro básico Tormenta 20 pag 17'
+        return descricao

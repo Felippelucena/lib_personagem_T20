@@ -35,6 +35,7 @@ class Pericias:
 
 
     def adicionar_mod(self, pericias):
+        # pericias = {'sobrevivencia': {'mod': 2, 'palavras_chaves': ['conhecimento_das_rochas']}}
         for pericia, valores in pericias.items():
             if 'atributo' in valores:
                 self.lista[pericia]['atributo'] = valores['atributo']
@@ -46,6 +47,7 @@ class Pericias:
                         self.lista[pericia]['palavras_chaves'].append(chave)
 
     def remover_mod(self, pericias):
+        # pericias = {'sobrevivencia': {'mod': 2, 'palavras_chaves': ['conhecimento_das_rochas']}}
         for pericia, valores in pericias.items():
             if 'mod' in valores:
                 self.lista[pericia]['mod'] -= valores['mod']
