@@ -21,7 +21,7 @@ class Personagem:
         self.deslocamento = {'base': 9}
         
     def pv_max(self):
-        pv = 10 + self.atributos.obj()['con'] + self.nivel + sum(self.pv['mod'].values())
+        pv = 10 + self.atributos.total()['con'] + self.nivel + sum(self.pv['mod'].values())
         return pv
     
     def __str__(self):

@@ -36,6 +36,8 @@ class Pericias:
 
     def adicionar_mod(self, pericias):
         for pericia, valores in pericias.items():
+            if 'atributo' in valores:
+                self.lista[pericia]['atributo'] = valores['atributo']
             if 'mod' in valores:
                 self.lista[pericia]['mod'] += valores['mod']
             if 'palavras_chaves' in valores:
@@ -51,18 +53,3 @@ class Pericias:
                 for chave in valores['palavras_chaves']:
                     if chave in self.lista[pericia]['palavras_chaves']:
                         self.lista[pericia]['palavras_chaves'].remove(chave)
-            
-                
-        '''if personagem.localizacao == 'subterraneo' and 'conhecimento_das_rochas' not in personagem.pericias.lista['sobrevivencia']['palavras_chaves']:
-            # Adiciona os bônus às perícias, incrementando os valores existentes
-            personagem.pericias.lista['sobrevivencia']['mod'] += 2
-            personagem.pericias.lista['sobrevivencia']['palavras_chaves'].append('conhecimento_das_rochas')
-            personagem.pericias.lista['percepcao']['mod'] += 2
-            personagem.pericias.lista['percepcao']['palavras_chaves'].append('conhecimento_das_rochas')
-            
-        elif personagem.localizacao != 'subterraneo' and 'conhecimento_das_rochas' in personagem.pericias.lista['sobrevivencia']['palavras_chaves']:
-            personagem.pericias.lista['sobrevivencia']['mod'] -= 2
-            personagem.pericias.lista['sobrevivencia']['palavras_chaves'].remove('conhecimento_das_rochas')
-            personagem.pericias.lista['percepcao']['mod'] -= 2
-            personagem.pericias.lista['percepcao']['palavras_chaves'].remove('conhecimento_das_rochas')  
-        '''          

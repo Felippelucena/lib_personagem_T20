@@ -1,13 +1,12 @@
-
 class Atributos:
     def __init__(self, pontos=10):
+        self.pontos = pontos
         self.lista = {  'for': {'base':0 },
                         'des': {'base':0 },
                         'con': {'base':0 },
                         'int': {'base':0 },
                         'sab': {'base':0 },
                         'car': {'base':0 }  }
-        self.pontos = pontos
         
         
     def definir(self, dados=None, atributos=None):
@@ -47,7 +46,7 @@ class Atributos:
             atributos[atributo] = sum(valor.values())
         return f'{atributos}'
     
-    def obj(self):
+    def total(self):
         atributos = {}
         for atributo, valor in self.lista.items():
             atributos[atributo] = sum(valor.values())

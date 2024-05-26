@@ -12,7 +12,7 @@ class Raca:
         match raca:
             case 'humano':
                 personagem.atributos.adicionar_mod(raca, atributos)
-                pericias_enviar = {pericias[i]: {'palavras_chaves': ['treinado']} for i in range(len(pericias))}
+                pericias_enviar = {pericias[i]: {'palavras_chaves': ['treinado', raca]} for i in range(len(pericias))}
                 personagem.pericias.adicionar_mod(pericias_enviar)
                 self.poderes = poderes
                     
