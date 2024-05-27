@@ -1,4 +1,5 @@
 from personagem import Personagem
+from personagem.construtor import Construtor
 
 def test_rolar_dados():
     personagem = Personagem(nome='Thorin')
@@ -11,7 +12,8 @@ def test_rolar_dados():
 
 def test_atributos_aleatorio():
     personagem = Personagem(nome='Ragnar')
-    personagem.atributos.definir(dados=personagem.dados)
+    construtor = Construtor(personagem)
+    construtor.definir_atributos(dados=personagem.dados)
 
     # Verificar se todos os atributos foram definidos
     atributos = personagem.atributos.lista
@@ -25,9 +27,10 @@ def test_atributos_aleatorio():
 
 def test_escolher_atributos():
     personagem = Personagem(nome='Ragnar')
+    construtor = Construtor(personagem)
     
     atributos = {'for': 3, 'des': 2, 'con': 2, 'int': 2, 'sab': 0, 'car': 0}
-    personagem.atributos.definir(atributos=atributos)
+    construtor.definir_atributos(atributos=atributos)
     
     # Verificar se todos os atributos foram definidos
     for atributo in atributos.keys():

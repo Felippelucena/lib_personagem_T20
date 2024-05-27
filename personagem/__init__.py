@@ -9,8 +9,8 @@ class Personagem:
         self.nome = nome
         self.nivel = 1
         self.dados = Dados()
-        self.atributos = Atributos(self)
-        self.raca = Raca(self)
+        self.atributos = Atributos()
+        self.raca = Raca()
         self.poderes = Poderes()
         self.classe = None
         self.origem = None
@@ -39,3 +39,10 @@ class Personagem:
             f"PM Atual: {self.pm['atual']}\n"
             f"Localização: {self.localizacao}\n"
         )
+
+    def passivas(self):
+        for valores in self.poderes.lista.values():
+            valores['usar']() if 'passiva' in valores['palavras_chaves'] else ''
+        
+        for valores in self.raca.habilidades.values():
+            valores['usar']() if 'passiva' in valores['palavras_chaves'] else ''

@@ -1,4 +1,4 @@
-class Raca:
+class Classe:
     def __init__(self):
         self.nome = None
         self.habilidades = {}
