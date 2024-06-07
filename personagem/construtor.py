@@ -36,7 +36,7 @@ class Construtor:
                 else:
                     self.__personagem.atributos.pontos = 10
                     
-        self.__personagem.poderes.adicionar({'Atributos Mínimos': {'usar': self.__personagem.atributos.atributos_minimos, 'palavras_chaves': ['passiva', 'atributos']}})
+        self.__personagem.poderes.adicionar({'Atributos Mínimos': {'usar': self.__personagem.atributos.atributos_minimos, 'tags': ['passiva', 'atributos']}})
         
     def definir_raca(self,raca, atributos=None, pericias=None, poderes=None):
         
@@ -46,7 +46,7 @@ class Construtor:
         match raca:
             case 'humano':
                 self.__personagem.atributos.adicionar_mod(raca, atributos)
-                pericias_enviar = {pericias[i]: {'palavras_chaves': ['treinado', raca]} for i in range(len(pericias))}
+                pericias_enviar = {pericias[i]: {'tags': ['treinado', raca]} for i in range(len(pericias))}
                 self.__personagem.pericias.adicionar_mod(pericias_enviar)
                 self.__personagem.poderes.adicionar(poderes) if len(pericias) == 1 else ''
                     

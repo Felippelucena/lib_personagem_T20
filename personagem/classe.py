@@ -10,3 +10,7 @@ class Classe:
     def adicionar_habilidade(self, habilidades):
         for habilidade, valores in habilidades.items():
             self.habilidades[habilidade] = valores
+            
+    def remover_habilidade(self, habilidades):
+        for habilidade in habilidades:
+            self.habilidades.pop(habilidade, None)

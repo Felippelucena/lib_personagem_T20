@@ -19,7 +19,7 @@ class Personagem:
         self.pv = { 'atual': 10, 'up': {'base':2}, 'mod': {}}
         self.pm = { 'atual': 5, 'up': {'base':1}, 'mod': {}}
         self.localizacao = None
-        self.palavras_chaves = {}
+        self.tags = {}
         self.deslocamento = {'base': 9}
         
     def pv_max(self):
@@ -42,7 +42,8 @@ class Personagem:
 
     def passivas(self):
         for valores in self.poderes.lista.values():
-            valores['usar']() if 'passiva' in valores['palavras_chaves'] else ''
+            valores['usar']() if 'passiva' in valores['tags'] else ''
         
         for valores in self.raca.habilidades.values():
-            valores['usar']() if 'passiva' in valores['palavras_chaves'] else ''
+            valores['usar']() if 'passiva' in valores['tags'] else ''
+            
